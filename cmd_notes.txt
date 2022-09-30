@@ -1,0 +1,147 @@
+rohangoli@Rohans-MacBook-Pro mern-stack % flyctl launch
+Update available 0.0.399 -> v0.0.400.
+Run "flyctl version update" to upgrade.
+Creating app in /Users/rohangoli/Data/clemson/cpsc-8750/mern-stack
+Scanning source code
+Detected a NodeJS app
+Using the following build configuration:
+	Builder: heroku/buildpacks:20
+? App Name (leave blank to use an auto-generated name): rgoli-cpsc8750
+? Select organization: clemson-rgoli (clemson-rgoli)
+? Select region: mia (Miami, Florida (US))
+Created app rgoli-cpsc8750 in organization clemson-rgoli
+Wrote config file fly.toml
+? Would you like to set up a Postgresql database now? No
+? Would you like to deploy now? Yes
+Deploying rgoli-cpsc8750
+==> Validating app configuration
+--> Validating app configuration done
+Services
+TCP 80/443 ⇢ 8080
+Remote builder fly-builder-sparkling-forest-674 ready
+==> Building image with Buildpacks
+--> docker host: 20.10.12 linux x86_64
+20: Pulling from heroku/buildpacks
+675920708c8b: Pull complete 
+79f8b44059a3: Pull complete 
+4765e7990615: Pull complete 
+3af791535ea0: Pull complete 
+ff22911ac4bd: Pull complete 
+d2f393c9e594: Pull complete 
+73ab698ec823: Pull complete 
+357fefdf9bc9: Pull complete 
+98438d9c08b1: Pull complete 
+5527c4faf53d: Pull complete 
+984c555312c3: Pull complete 
+9fa1afea7d6c: Pull complete 
+05b6ab9d3563: Pull complete 
+b4c43f83e9ee: Pull complete 
+cba128432098: Pull complete 
+96d11f633700: Pull complete 
+b7fc173f4be7: Pull complete 
+22a44930f170: Pull complete 
+0836f8ecffda: Pull complete 
+f10dea63a38d: Pull complete 
+1567961148de: Pull complete 
+36f6a15c7832: Pull complete 
+7396cf74d2d8: Pull complete 
+210536913458: Pull complete 
+b731b692ac8b: Pull complete 
+f0483b0da564: Pull complete 
+3d99fcc555d3: Pull complete 
+955230030fe4: Pull complete 
+d380858d7954: Pull complete 
+4f4fb700ef54: Pull complete 
+Digest: sha256:b10b2ae3e444320d169f7ce8c3bbffe8f96599db197aa890c35e6fa043b4eac9
+Status: Downloaded newer image for heroku/buildpacks:20
+20-cnb: Pulling from heroku/heroku
+675920708c8b: Already exists 
+79f8b44059a3: Already exists 
+4765e7990615: Already exists 
+5e97bd203c5b: Pull complete 
+03630c6ae6fe: Pull complete 
+Digest: sha256:74ca0e2042b01fb37cb894592c19420c758548356583d420e038acfc7001b5a9
+Status: Downloaded newer image for heroku/heroku:20-cnb
+===> DETECTING
+2 of 3 buildpacks participating
+heroku/nodejs-engine 0.8.9
+heroku/nodejs-npm    0.5.2
+===> ANALYZING
+Previous image with name "registry.fly.io/rgoli-cpsc8750:cache" not found
+===> RESTORING
+===> BUILDING
+
+[Heroku Node.js Engine Buildpack]
+
+[Checking Node.js version]
+Detected Node.js version range: *
+Resolved Node.js version: 18.9.1
+
+[Installing Node.js distribution]
+Downloading Node.js 18.9.1
+Extracting Node.js 18.9.1
+Installing Node.js 18.9.1
+[INFO] Installing toolbox
+[INFO] - yj
+[INFO] Using npm v8.19.1 from Node
+[INFO] Installing node modules from ./package-lock.json
+npm WARN config production Use `--omit=dev` instead.
+
+added 57 packages, and audited 58 packages in 870ms
+
+7 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+[Warning: Skip pruning because NODE_ENV is not 'production'.]
+
+===> EXPORTING
+Adding layer 'heroku/nodejs-engine:dist'
+Adding layer 'heroku/nodejs-engine:web_env'
+Adding 1/1 app layer(s)
+Adding layer 'launcher'
+Adding layer 'config'
+Adding layer 'process-types'
+Adding label 'io.buildpacks.lifecycle.metadata'
+Adding label 'io.buildpacks.build.metadata'
+Adding label 'io.buildpacks.project.metadata'
+Setting default process type 'web'
+Saving registry.fly.io/rgoli-cpsc8750:cache...
+*** Images (1c3beda23cfe):
+      registry.fly.io/rgoli-cpsc8750:cache
+      registry.fly.io/rgoli-cpsc8750:deployment-01GE7B3Z82A1WEXKA4B2C7EW9B
+Adding cache layer 'heroku/nodejs-engine:dist'
+Adding cache layer 'heroku/nodejs-npm:node_modules'
+Adding cache layer 'heroku/nodejs-npm:toolbox'
+--> Building image done
+==> Pushing image to fly
+The push refers to repository [registry.fly.io/rgoli-cpsc8750]
+83d85471d9f8: Pushed 
+3b74a24b5579: Pushed 
+9497805c7bd5: Pushed 
+463a085cd2d4: Pushed 
+910f4dbf1382: Pushed 
+564347d67104: Pushed 
+a6961e8f0975: Pushed 
+d9e32c9d6880: Pushed 
+1f8c963524ce: Pushed 
+adbe309ee63b: Pushed 
+b40ed86654e5: Pushed 
+deployment-01GE7B3Z82A1WEXKA4B2C7EW9B: digest: sha256:fcd70c4cbf66c317d0726c3eea4cbd1d9fbc3a20b0f7887f101f469b7ee7deb3 size: 2620
+--> Pushing image done
+Image: registry.fly.io/rgoli-cpsc8750:deployment-01GE7B3Z82A1WEXKA4B2C7EW9B
+Image size: 734 MB
+==> Creating release
+Release v2 created
+
+You can detach the terminal anytime without stopping the deployment
+Monitoring Deployment
+
+1 desired, 1 placed, 1 healthy, 0 unhealthy [health checks: 1 total, 1 passing]
+--> v0 deployed successfully
+rohangoli@Rohans-MacBook-Pro mern-stack % flyctl open
+Update available 0.0.399 -> v0.0.400.
+Run "flyctl version update" to upgrade.
+opening http://rgoli-cpsc8750.fly.dev ...
+rohangoli@Rohans-MacBook-Pro mern-stack % 
