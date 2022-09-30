@@ -145,3 +145,26 @@ Update available 0.0.399 -> v0.0.400.
 Run "flyctl version update" to upgrade.
 opening http://rgoli-cpsc8750.fly.dev ...
 rohangoli@Rohans-MacBook-Pro mern-stack % 
+rohangoli@Rohans-MacBook-Pro mern-stack % flyctl status
+Update available 0.0.399 -> v0.0.400.
+Run "flyctl version update" to upgrade.
+App
+  Name     = rgoli-cpsc8750          
+  Owner    = clemson-rgoli           
+  Version  = 0                       
+  Status   = running                 
+  Hostname = rgoli-cpsc8750.fly.dev  
+  Platform = nomad                   
+
+Deployment Status
+  ID          = fbc09087-8e2a-a53e-4d38-08802ac85113         
+  Version     = v0                                           
+  Status      = successful                                   
+  Description = Deployment completed successfully            
+  Instances   = 1 desired, 1 placed, 1 healthy, 0 unhealthy  
+
+Instances
+ID      	PROCESS	VERSION	REGION	DESIRED	STATUS 	HEALTH CHECKS     	RESTARTS	CREATED    
+d6411ed1	app    	0      	mia   	run    	running	1 total, 1 passing	0       	13m24s ago	
+
+rohangoli@Rohans-MacBook-Pro mern-stack %
