@@ -1,6 +1,6 @@
-# fly.toml file generated for rgoli-cpsc8750 on 2022-09-30T09:59:12-04:00
+# fly.toml file generated for rgoli-dynamicwebpage on 2022-10-07T14:24:44-04:00
 
-app = "rgoli-cpsc8750"
+app = "rgoli-dynamicwebpage"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
