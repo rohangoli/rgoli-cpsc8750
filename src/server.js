@@ -10,6 +10,9 @@ const cookieParser = require('cookie-parser');
 // create a new server application
 const app = express();
 
+// For standard API requests
+const fetch = require('node-fetch');
+
 // Define the port we will listen on
 // (it will attempt to read an environment global)
 // first, that is for when this is used on the real
@@ -78,6 +81,50 @@ app.get('/', (req, res) =>{
     //         </body>
     //     </html>
     // `);
+});
+
+app.get("/trivia", async (req,res) =>{
+    // res.send('TODO');
+
+    // fetch the data
+    const response = await fetch("https://opentdb.com/api.php?amount=1&type=multiple");
+
+    // fail if bad response
+    if(!response.ok){
+        res.status(500);
+        res.send(`Open Trivia Database failed with HTTP code ${response.status}`);
+        return;
+    }
+
+    // interpret the body as json
+    const content = await response.json();
+
+    // TODO: make proper HTML
+    const format = JSON.stringify(content,2);
+
+    const correctAnswer = content.results[0].correct_answer;
+    const answers = content.results[0].incorrect_answers;
+    answers.push(correctAnswer);
+
+    // Randomize Answers Array
+    answers.sort(() => Math.random() - 0.5)
+
+    const answerLinks = answers.map(answer => {
+        return `<a href="javascript:alert('${
+          answer === correctAnswer ? 'Correct!' : 'Incorrect, Please Try Again!'
+          }')">${answer}</a>`
+    });
+
+    // respond to the browser
+    // TODO: make proper HTML
+    // res.send(JSON.stringify(content,2));
+    res.render('trivia',{
+        category:  content.results[0].category,
+        difficulty: content.results[0].difficulty,
+        question: content.results[0].question,
+        answers: answers,
+        answerLinks: answerLinks,
+    });
 });
 
 // Start listening for network connections
